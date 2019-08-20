@@ -1,28 +1,14 @@
 require('dotenv-safe').config();
 const easyvk = require('easyvk');
-const fs = require('fs');
+const { writeJson } = require('./__common');
 
 const {
     LOGIN,
     PASSWORD,
 } = process.env;
 
-function isRepostWithPhoto(post) {
-    if (!post.copy_history)
-        return false;
-    return post.copy_history.some(orig =>
-        orig.attachments &&
-        orig.attachments.some(({ type }) => type === 'photo' || type === 'posted_photo')
-    );
-}
-
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
-}
-
-function saveToJson(filename, data) {
-    const json = JSON.stringify(data);
-    fs.writeFileSync(filename, json, 'utf8');
 }
 
 async function get_posts(vk, n, owner_id) {
@@ -121,5 +107,5 @@ easyvk({
     // console.log(with_photos);
     // console.log(`[${with_photos.length}/${wall.items.length}/${wall.count}]`);
 
-    saveToJson(`./data/all_posts.${first_n}.min.json`, wall);
+    writeJson(`./data/all_posts.${first_n}.min.json`, wall);
 });

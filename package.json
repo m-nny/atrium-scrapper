@@ -5,6 +5,7 @@
   "author": "Alibek Manabayev <alibek.mananbayev@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "csv-parser": "^2.3.0",
     "dotenv-safe": "^6.1.0",
     "easyvk": "^2.5.1"
   }
