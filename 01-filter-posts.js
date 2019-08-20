@@ -31,9 +31,11 @@ function getFirstPhotoOfSourcePost(post) {
 
 const N = 100 * 1000;
 const input = `./data/all_posts.${N}.min.json`;
-const output = `./data/resposts.${N}.min.json`;
 const posts = readJson(input).items;
 
 const resposts = posts.filter(p => getFirstPhotoOfSourcePost(p));
+
 console.log(`found ${resposts.length} reposts with photo`);
+
+const output = `./data/resposts.${resposts.length}.${N}.min.json`;
 writeJson(output, resposts);
