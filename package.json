@@ -1,0 +1,11 @@
+{
+  "name": "feed-screapper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alibek Manabayev <alibek.mananbayev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv-safe": "^6.1.0",
+    "easyvk": "^2.5.1"
+  }
+}
